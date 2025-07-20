@@ -157,6 +157,7 @@ namespace oop
         // Encapsulation: Display all cars using each car's ShowInfo method (demonstrates Polymorphism)
         static void ShowCars()
         {
+            Console.WriteLine("------------------------------------------------");
             Console.WriteLine("List of cars:");
             if (cars.Count == 0)
             {
@@ -171,6 +172,7 @@ namespace oop
                     car.ShowInfo();  // Polymorphism: call overridden method based on object type
                 }
             }
+            Console.WriteLine("------------------------------------------------");
             Console.WriteLine("Press Enter to continue...");
             Console.ReadLine();
         }
@@ -178,21 +180,17 @@ namespace oop
         // Polymorphism: Call Start method on all cars demonstrating overridden behavior
         static void StartCars()
         {
-            Console.WriteLine("Starting all cars:");
-            foreach (Car car in cars)
+            if (cars.Count == 0)
             {
-                car.Start();  // Polymorphic call executes method version of actual object
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("No cars to start.");
+                Console.ResetColor();
+                Console.WriteLine("Press Enter to continue...");
+                Console.ReadLine();
+                return;
             }
-            Console.WriteLine("Press Enter to continue...");
-            Console.ReadLine();
-        }
-
-        // Encapsulation: Remove a car from the list by searching its model manually (no LINQ)
-        static void RemoveCar()
-        {
-            Console.WriteLine("List of cars:");
             Console.WriteLine("------------------------------------------------");
-
+            Console.WriteLine("List of cars:");
             if (cars.Count == 0)
             {
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -207,6 +205,57 @@ namespace oop
                 }
             }
             Console.WriteLine("------------------------------------------------");
+
+            Console.WriteLine("Enter the model of the car you want to start:");
+            string modelToStart = Console.ReadLine().ToLower();
+
+            Car carToStart = null;
+
+            foreach (Car car in cars)
+            {
+                if (car.Model.ToLower() == modelToStart)
+                {
+                    carToStart = car;
+                    break;
+                }
+            }
+
+            if (carToStart != null)
+            {
+                carToStart.Start();  // Polymorphism
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Car model not found!");
+                Console.ResetColor();
+            }
+
+            Console.WriteLine("Press Enter to continue...");
+            Console.ReadLine();
+        }
+
+
+        // Encapsulation: Remove a car from the list by searching its model manually (no LINQ)
+        static void RemoveCar()
+        {
+            Console.WriteLine("------------------------------------------------");
+            Console.WriteLine("List of cars:");
+            if (cars.Count == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("No cars to show.");
+                Console.ResetColor();
+            }
+            else
+            {
+                foreach (Car car in cars)
+                {
+                    car.ShowInfo();  // Polymorphism: call overridden method based on object type
+                }
+            }
+            Console.WriteLine("------------------------------------------------");
+
 
             Console.Write("Enter model to remove: ");
             string model = Console.ReadLine().ToLower();

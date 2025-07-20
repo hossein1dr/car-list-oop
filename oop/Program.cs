@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,7 +25,7 @@ namespace oop
                     "Show All Cars",
                     "Start All Cars",
                     "Remove Car"
-                  
+
 
                 };
 
@@ -189,6 +190,24 @@ namespace oop
         // Encapsulation: Remove a car from the list by searching its model manually (no LINQ)
         static void RemoveCar()
         {
+            Console.WriteLine("List of cars:");
+            Console.WriteLine("------------------------------------------------");
+
+            if (cars.Count == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("No cars to show.");
+                Console.ResetColor();
+            }
+            else
+            {
+                foreach (Car car in cars)
+                {
+                    car.ShowInfo();  // Polymorphism: call overridden method based on object type
+                }
+            }
+            Console.WriteLine("------------------------------------------------");
+
             Console.Write("Enter model to remove: ");
             string model = Console.ReadLine().ToLower();
 
@@ -197,6 +216,7 @@ namespace oop
             // Search car by model
             foreach (Car car in cars)
             {
+
                 if (car.Model.ToLower() == model)
                 {
                     carToRemove = car;
@@ -270,7 +290,6 @@ namespace oop
         {
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine(
-
                 $"Ordinary Car -> Brand: {Brand}," +
                 $" Model: {Model}," +
                 $" Color: {Color}," +

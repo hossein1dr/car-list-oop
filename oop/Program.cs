@@ -62,7 +62,6 @@ namespace oop
                     }
                     catch
                     {
-                        Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Please enter a valid number!");
                         Console.ResetColor();

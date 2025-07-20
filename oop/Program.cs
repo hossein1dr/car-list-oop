@@ -15,14 +15,24 @@ namespace oop
         static void Main(string[] args)
         {
             while (true)
-            {
+            { 
+
                 Console.Clear();
+                string[] menu=  { 
+
+                    "1. Add New Car",
+                    "2. Show All Cars",
+                    "3. Start All Cars",
+                    "4. Remove Car",
+                    "0. Exit"
+                    
+                };
+
                 Console.WriteLine("Car Management System with OOP - Car Types");
-                Console.WriteLine("1. Add New Car");
-                Console.WriteLine("2. Show All Cars");
-                Console.WriteLine("3. Start All Cars");
-                Console.WriteLine("4. Remove Car");
-                Console.WriteLine("0. Exit");
+                for (int i = 0; i < menu.Length; i++)
+                {
+                    Console.WriteLine(menu[i]);
+                }
                 Console.Write("Your choice: ");
                 string choice = Console.ReadLine();
 
@@ -52,7 +62,7 @@ namespace oop
 
         // Encapsulation: Get user input and add a new car object to the list
         static void AddCar()
-        {
+        { 
             Console.WriteLine("Choose car type:");
             Console.WriteLine("1. Ordinary");
             Console.WriteLine("2. Race");

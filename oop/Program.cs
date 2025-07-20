@@ -24,7 +24,7 @@ namespace oop
                     "2. Show All Cars",
                     "3. Start All Cars",
                     "4. Remove Car",
-                    "0. Exit"
+                    "0. Exit" 
                     
                 };
 
@@ -62,13 +62,20 @@ namespace oop
 
         // Encapsulation: Get user input and add a new car object to the list
         static void AddCar()
-        { 
+        {
+            string[] typecar = {
+                
+                "1. Ordinary",
+                "2. Race",
+                "3. Sports",
+                "4. Super Sports",
+                "5. Classic" 
+            };
             Console.WriteLine("Choose car type:");
-            Console.WriteLine("1. Ordinary");
-            Console.WriteLine("2. Race");
-            Console.WriteLine("3. Sports");
-            Console.WriteLine("4. Super Sports");
-            Console.WriteLine("5. Classic");
+            for(int i = 0;i < typecar.Length; i++)
+            {
+                Console.WriteLine(typecar[i]);
+            }
             Console.Write("Your choice: ");
             string typeChoice = Console.ReadLine();
 
@@ -199,7 +206,14 @@ namespace oop
         // Polymorphism: Virtual method to show car info, can be overridden by subclasses
         public virtual void ShowInfo()
         {
-            Console.WriteLine($"Car -> Brand: {Brand}, Model: {Model}, Color: {Color}, Year: {Year}");
+            Console.WriteLine(
+
+                $"Car -> Brand: {Brand}," +
+                $" Model: {Model}," +
+                $" Color: {Color}," +
+                $" Year: {Year}"
+
+                );
         }
 
         // Polymorphism: Virtual start method to be overridden by subclasses
@@ -217,7 +231,13 @@ namespace oop
 
         public override void ShowInfo()
         {
-            Console.WriteLine($"Ordinary Car -> Brand: {Brand}, Model: {Model}, Color: {Color}, Year: {Year}");
+            Console.WriteLine(
+
+                $"Ordinary Car -> Brand: {Brand}," +
+                $" Model: {Model}," +
+                $" Color: {Color}," +
+                $" Year: {Year}"
+                );
         }
 
         public override void Start()
@@ -234,7 +254,12 @@ namespace oop
 
         public override void ShowInfo()
         {
-            Console.WriteLine($"Race Car -> Brand: {Brand}, Model: {Model}, Color: {Color}, Year: {Year}");
+            Console.WriteLine(
+                $"Race Car -> Brand: {Brand}, " +
+                $"Model: {Model}," +
+                $" Color: {Color}," +
+                $" Year: {Year}"
+                );
         }
 
         public override void Start()
@@ -251,7 +276,12 @@ namespace oop
 
         public override void ShowInfo()
         {
-            Console.WriteLine($"Sports Car -> Brand: {Brand}, Model: {Model}, Color: {Color}, Year: {Year}");
+            Console.WriteLine(
+                $"Sports Car -> Brand: {Brand}," +
+                 $" Model: {Model}," +
+                 $" Color: {Color}," +
+                 $" Year: {Year}"
+                );
         }
 
         public override void Start()
@@ -268,7 +298,12 @@ namespace oop
 
         public override void ShowInfo()
         {
-            Console.WriteLine($"Super Sports Car -> Brand: {Brand}, Model: {Model}, Color: {Color}, Year: {Year}");
+            Console.WriteLine(
+                $"Super Sports Car -> Brand: {Brand}," +
+                 $" Model: {Model}," +
+                 $" Color: {Color}," +
+                 $" Year: {Year}" 
+                );
         }
 
         public override void Start()
@@ -285,7 +320,12 @@ namespace oop
 
         public override void ShowInfo()
         {
-            Console.WriteLine($"Classic Car -> Brand: {Brand}, Model: {Model}, Color: {Color}, Year: {Year}");
+            Console.WriteLine(
+                $"Classic Car -> Brand: {Brand}," +
+                $" Model: {Model}," +
+                $" Color: {Color}," +
+                $" Year: {Year}"
+                );
         }
 
         public override void Start()

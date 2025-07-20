@@ -53,9 +53,11 @@ namespace oop
                     case "0":
                         return;  // Exit program
                     default:
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Invalid choice. Press Enter.");
                         Console.ReadLine();
                         break;
+                        Console.ResetColor();
                 }
             }
         }
@@ -118,8 +120,10 @@ namespace oop
             }
 
             cars.Add(newCar);
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Car added successfully. Press Enter.");
             Console.ReadLine();
+            Console.ResetColor();
         }
 
         // Encapsulation: Display all cars using each car's ShowInfo method (demonstrates Polymorphism)
@@ -128,7 +132,9 @@ namespace oop
             Console.WriteLine("List of cars:");
             if (cars.Count == 0)
             {
+                Console.ForegroundColor= ConsoleColor.DarkYellow;
                 Console.WriteLine("No cars to show.");
+                Console.ResetColor();
             }
             else
             {
@@ -174,11 +180,14 @@ namespace oop
             if (carToRemove != null)
             {
                 cars.Remove(carToRemove);
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Car removed successfully.");
+                Console.ResetColor();
             }
             else
-            {
+            { Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("No car found with this model.");
+                Console.ResetColor();
             }
             Console.WriteLine("Press Enter to continue...");
             Console.ReadLine();
@@ -231,6 +240,7 @@ namespace oop
 
         public override void ShowInfo()
         {
+            Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine(
 
                 $"Ordinary Car -> Brand: {Brand}," +
@@ -238,6 +248,7 @@ namespace oop
                 $" Color: {Color}," +
                 $" Year: {Year}"
                 );
+            Console.ResetColor();
         }
 
         public override void Start()
@@ -254,12 +265,14 @@ namespace oop
 
         public override void ShowInfo()
         {
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(
                 $"Race Car -> Brand: {Brand}, " +
                 $"Model: {Model}," +
                 $" Color: {Color}," +
                 $" Year: {Year}"
                 );
+            Console.ResetColor();
         }
 
         public override void Start()
@@ -276,12 +289,14 @@ namespace oop
 
         public override void ShowInfo()
         {
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine(
                 $"Sports Car -> Brand: {Brand}," +
                  $" Model: {Model}," +
                  $" Color: {Color}," +
                  $" Year: {Year}"
                 );
+            Console.ResetColor();
         }
 
         public override void Start()
@@ -298,12 +313,14 @@ namespace oop
 
         public override void ShowInfo()
         {
+            Console.ForegroundColor= ConsoleColor.DarkBlue;
             Console.WriteLine(
                 $"Super Sports Car -> Brand: {Brand}," +
                  $" Model: {Model}," +
                  $" Color: {Color}," +
                  $" Year: {Year}" 
                 );
+            Console.ResetColor();
         }
 
         public override void Start()
@@ -320,12 +337,14 @@ namespace oop
 
         public override void ShowInfo()
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine(
                 $"Classic Car -> Brand: {Brand}," +
                 $" Model: {Model}," +
                 $" Color: {Color}," +
                 $" Year: {Year}"
                 );
+            Console.ResetColor();
         }
 
         public override void Start()

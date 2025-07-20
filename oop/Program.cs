@@ -33,32 +33,40 @@ namespace oop
                 {
                     Console.WriteLine($"{i}. {menu[i]}");
                 }
-                Console.Write("Your choice: ");
-                string choice = Console.ReadLine();
+                const String choiceQuestion = "Your choice: ";
 
-                switch (choice)
+                while (true)
                 {
-                    case "1":
-                        AddCar();
+                    try
+                    {
+                        Console.Write(choiceQuestion);
+                        int choice = int.Parse(Console.ReadLine());
+                        switch (choice)
+                        {
+                            case 1:
+                                AddCar();
+                                break;
+                            case 2:
+                                ShowCars();
+                                break;
+                            case 3:
+                                StartCars();
+                                break;
+                            case 4:
+                                RemoveCar();
+                                break;
+                            case 0:
+                                return;  // Exit program
+                        }
                         break;
-                    case "2":
-                        ShowCars();
-                        break;
-                    case "3":
-                        StartCars();
-                        break;
-                    case "4":
-                        RemoveCar();
-                        break;
-                    case "0":
-                        return;  // Exit program
-                    default:
+                    }
+                    catch
+                    {
+                        Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Invalid choice. Press Enter.");
-                        Console.ReadLine();
+                        Console.WriteLine("Please enter a valid number!");
                         Console.ResetColor();
-                        break;
-                       
+                    }
                 }
             }
         }
@@ -78,6 +86,7 @@ namespace oop
             {
                 Console.WriteLine($"{i + 1}. {typecar[i]}");
             }
+
             Console.Write("Your choice: ");
             string typeChoice = Console.ReadLine();
 

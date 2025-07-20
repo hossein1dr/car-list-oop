@@ -15,23 +15,23 @@ namespace oop
         static void Main(string[] args)
         {
             while (true)
-            { 
+            {
 
                 Console.Clear();
-                string[] menu=  { 
+                string[] menu =  {
+                    "Exit",
+                    "Add New Car",
+                    "Show All Cars",
+                    "Start All Cars",
+                    "Remove Car"
+                  
 
-                    "1. Add New Car",
-                    "2. Show All Cars",
-                    "3. Start All Cars",
-                    "4. Remove Car",
-                    "0. Exit" 
-                    
                 };
 
                 Console.WriteLine("Car Management System with OOP - Car Types");
                 for (int i = 0; i < menu.Length; i++)
                 {
-                    Console.WriteLine(menu[i]);
+                    Console.WriteLine($"{i}. {menu[i]}");
                 }
                 Console.Write("Your choice: ");
                 string choice = Console.ReadLine();
@@ -56,8 +56,9 @@ namespace oop
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Invalid choice. Press Enter.");
                         Console.ReadLine();
-                        break;
                         Console.ResetColor();
+                        break;
+                       
                 }
             }
         }
@@ -66,17 +67,16 @@ namespace oop
         static void AddCar()
         {
             string[] typecar = {
-                
-                "1. Ordinary",
-                "2. Race",
-                "3. Sports",
-                "4. Super Sports",
-                "5. Classic" 
+                "Ordinary",
+                "Race",
+                "Sports",
+                "Super Sports",
+                "Classic"
             };
             Console.WriteLine("Choose car type:");
-            for(int i = 0;i < typecar.Length; i++)
+            for (int i = 0; i < typecar.Length; i++)
             {
-                Console.WriteLine(typecar[i]);
+                Console.WriteLine($"{i + 1}. {typecar[i]}");
             }
             Console.Write("Your choice: ");
             string typeChoice = Console.ReadLine();
@@ -90,8 +90,27 @@ namespace oop
             Console.Write("Car color: ");
             string color = Console.ReadLine();
 
-            Console.Write("Manufacture year: ");
-            int year = int.Parse(Console.ReadLine());
+
+            int year = 0;
+            const String carmodelQuestion = "car model year: ";
+
+            while (true)
+            {
+                try
+                {
+                    Console.Write(carmodelQuestion);
+                    year = int.Parse(Console.ReadLine());
+                    break;
+                }
+                catch
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Please enter a valid number!");
+                    Console.ResetColor();
+                }
+            }
+
 
             Car newCar;
 
@@ -132,7 +151,7 @@ namespace oop
             Console.WriteLine("List of cars:");
             if (cars.Count == 0)
             {
-                Console.ForegroundColor= ConsoleColor.DarkYellow;
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("No cars to show.");
                 Console.ResetColor();
             }
@@ -185,7 +204,8 @@ namespace oop
                 Console.ResetColor();
             }
             else
-            { Console.ForegroundColor = ConsoleColor.DarkYellow;
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("No car found with this model.");
                 Console.ResetColor();
             }
@@ -313,12 +333,12 @@ namespace oop
 
         public override void ShowInfo()
         {
-            Console.ForegroundColor= ConsoleColor.DarkBlue;
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine(
                 $"Super Sports Car -> Brand: {Brand}," +
                  $" Model: {Model}," +
                  $" Color: {Color}," +
-                 $" Year: {Year}" 
+                 $" Year: {Year}"
                 );
             Console.ResetColor();
         }

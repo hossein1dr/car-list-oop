@@ -301,6 +301,7 @@ namespace oop
         public override void Start()
         {
             Console.WriteLine($"{Brand} {Model} started like an ordinary car.");
+            Console.Beep(800, 300);
         }
     }
 
@@ -325,6 +326,7 @@ namespace oop
         public override void Start()
         {
             Console.WriteLine($"{Brand} {Model} start on the track!");
+            Console.Beep(1200, 200);
         }
     }
 
@@ -349,6 +351,7 @@ namespace oop
         public override void Start()
         {
             Console.WriteLine($"{Brand} {Model} starts with a sporty !");
+            Console.Beep(1000, 250);
         }
     }
 
@@ -373,6 +376,7 @@ namespace oop
         public override void Start()
         {
             Console.WriteLine($"{Brand} {Model} starts with a super sporty !");
+            Console.Beep(1500, 180);
         }
     }
 
@@ -397,6 +401,7 @@ namespace oop
         public override void Start()
         {
             Console.WriteLine($"{Brand} {Model} started with classic ");
+            Console.Beep(600, 500);
         }
     }
 }

@@ -17,7 +17,6 @@ namespace oop
         {
             while (true)
             {
-
                 Console.Clear();
                 string[] menu =  {
                     "Exit",
@@ -25,8 +24,6 @@ namespace oop
                     "Show All Cars",
                     "Start All Cars",
                     "Remove Car"
-
-
                 };
 
                 Console.WriteLine("Car Management System with OOP - Car Types");
@@ -99,7 +96,6 @@ namespace oop
             Console.Write("Car color: ");
             string color = Console.ReadLine();
 
-
             int year = 0;
             const String carmodelQuestion = "car model year: ";
 
@@ -119,7 +115,6 @@ namespace oop
                     Console.ResetColor();
                 }
             }
-
 
             Car newCar;
 
@@ -235,7 +230,6 @@ namespace oop
             Console.ReadLine();
         }
 
-
         // Encapsulation: Remove a car from the list by searching its model manually (no LINQ)
         static void RemoveCar()
         {
@@ -256,7 +250,6 @@ namespace oop
             }
             Console.WriteLine("------------------------------------------------");
 
-
             Console.Write("Enter model to remove: ");
             string model = Console.ReadLine().ToLower();
 
@@ -265,7 +258,6 @@ namespace oop
             // Search car by model
             foreach (Car car in cars)
             {
-
                 if (car.Model.ToLower() == model)
                 {
                     carToRemove = car;
@@ -313,12 +305,10 @@ namespace oop
         public virtual void ShowInfo()
         {
             Console.WriteLine(
-
                 $"Car -> Brand: {Brand}," +
                 $" Model: {Model}," +
                 $" Color: {Color}," +
                 $" Year: {Year}"
-
                 );
         }
 
@@ -346,7 +336,6 @@ namespace oop
                 );
             Console.ResetColor();
         }
-
         public override void Start()
         {
             Console.WriteLine($"{Brand} {Model} started like an ordinary car.");
